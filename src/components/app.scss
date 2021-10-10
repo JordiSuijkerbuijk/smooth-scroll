@@ -1,15 +1,22 @@
 .app {
   display: flex;
+  align-items: center;
   flex-direction: column;
   color: #fff;
 
   .flex {
     display: flex;
     justify-content: center;
-    width: 100%;
+    position: relative;
+    width: 450px;
+    height: 255px;
+    min-height: 255px;
   }
 
   .card {
+    display: flex;
+    position: absolute;
+    top: 0;
     width: 100%;
     max-width: 450px;
     height: 225px;
@@ -19,6 +26,9 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 15px 0;
+    transform-origin: top center;
+    will-change: transform;
+    overflow: hidden;
 
     .bankName {
       font-weight: bold;
