@@ -1,8 +1,8 @@
 import { h } from "preact";
 
-import cardsArray from "../assets/data/cards.json";
+import cardsArray from "../../assets/data/cards.json";
 
-import style from "./app.scss";
+import style from "./stacked.module.scss";
 
 const colorArray = [
   { from: "#f85362", to: "#ff8ea2" },
@@ -32,10 +32,10 @@ const card = (bankName, balance, cardNumber, key) => (
   </div>
 );
 
-function App() {
+function Stacked() {
   let ticking = false;
 
-  document.addEventListener("scroll", function () {
+  document.addEventListener("scroll", () => {
     if (!ticking) {
       requestAnimationFrame(() => {
         const boxes = document.querySelectorAll("#flex");
@@ -56,11 +56,10 @@ function App() {
         for (let i = 0; i < boxes.length; i += 1) {
           const intersection = getIntersectionRatio(i);
           const top = boxes[i].offsetTop - window.pageYOffset < 0;
+          console.log("intersection", intersection);
           boxes[i].firstChild.style.cssText += `
-					transform-origin: ${top ? "center center" : "top center"};
 					position: ${top ? "fixed" : "absolute"};
-					transform: scale(${intersection});
-					opacity: ${intersection};
+					top: ${i * 25}px;
 					`;
         }
         ticking = false;
@@ -80,4 +79,4 @@ function App() {
   );
 }
 
-export default App;
+export default Stacked;

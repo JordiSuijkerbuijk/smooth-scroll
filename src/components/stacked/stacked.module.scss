@@ -1,0 +1,53 @@
+.app {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+  
+    .flex {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 450px;
+      height: 255px;
+      min-height: 255px;
+      transition: 0.11s top ease-out;
+    }
+  
+    .card {
+      display: flex;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      max-width: 450px;
+      height: 225px;
+      border-radius: 15px;
+      padding: 25px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 15px 0;
+      transform-origin: top center;
+      will-change: transform;
+      overflow: hidden;
+  
+      .bankName {
+        font-weight: bold;
+      }
+  
+      .columnWrapper {
+        display: flex;
+        justify-content: space-between;
+  
+        .balanceWrapper {
+          display: flex;
+          flex-direction: column;
+        }
+  
+        .cardNumber {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+  
